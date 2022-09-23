@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 import { View, FlatList, Text, StyleSheet } from "react-native";
-import { movieItem } from "../components/movieItem";
+import {MovieItem } from "./MovieItem";
 
 export class List extends PureComponent {
   render() {
@@ -13,7 +13,7 @@ export class List extends PureComponent {
         <View>
           <FlatList
             data={data}
-            renderItem={movieItem}
+            renderItem={MovieItem}
             keyExtractor={(item) => item.id}
             horizontal
           />
