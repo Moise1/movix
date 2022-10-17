@@ -27,9 +27,17 @@ export const getFamilyMovies = async () => {
   );
   return data.results;
 };
+
 export const getDocumentaries = async () => {
   const { data } = await axios.get(
     `${API_URL}/3/tv/popular?api_key=${API_KEY}`
   );
   return data.results;
+};
+
+export const getMovie = async (id) => {
+  const { data } = await axios.get(
+    `${API_URL}/3/movie/${id}?api_key=${API_KEY}`
+  );
+  return data;
 };

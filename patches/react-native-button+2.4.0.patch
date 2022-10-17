@@ -1,0 +1,17 @@
+diff --git a/node_modules/react-native-button/Button.js b/node_modules/react-native-button/Button.js
+index fb7cf46..c744b99 100644
+--- a/node_modules/react-native-button/Button.js
++++ b/node_modules/react-native-button/Button.js
+@@ -16,12 +16,9 @@ export default class Button extends Component {
+   static propTypes = {
+     ...TouchableOpacity.propTypes,
+     accessibilityLabel: PropTypes.string,
+-    allowFontScaling: Text.propTypes.allowFontScaling,
+     containerStyle: ViewPropTypes.style,
+     disabledContainerStyle: ViewPropTypes.style,
+     disabled: PropTypes.bool,
+-    style: Text.propTypes.style,
+-    styleDisabled: Text.propTypes.style,
+     childGroupStyle: ViewPropTypes.style,
+   };
+ 

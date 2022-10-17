@@ -10,12 +10,12 @@ import {
 } from "../services";
 import { List } from "../components/List";
 
-export const Home = () => {
+export const Home = ({navigation}) => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [popularTv, setPopularTv] = useState([]);
   const [familyMovies, setFamilyMovies] = useState([]);
-  const device = Dimensions.get("screen");
+  const {height} = Dimensions.get("screen");
 
   useEffect(() => {
     (async () => {
@@ -38,24 +38,24 @@ export const Home = () => {
             images={popularMoviesImgs}
             autoPlay={true}
             circleLoop={true}
-            sliderBoxHeight={device.height / 1.5}
+            sliderBoxHeight={height / 1.5}
             dotStyle={styles.dotStyle}
           />
         </View>
         <View style={styles.carousel}>
-          <List data={popularMovies} title="Popular Movies" />
+          <List navigation={navigation} data={popularMovies} title="Popular Movies" />
         </View>
 
         <View style={styles.carousel}>
-          <List data={upcomingMovies} title="Upcoming Movies" />
+          <List navigation={navigation} data={upcomingMovies} title="Upcoming Movies" />
         </View>
 
         <View style={styles.carousel}>
-          <List data={popularTv} title="Popular TV Shows" />
+          <List navigation={navigation} data={popularTv} title="Popular TV Shows" />
         </View>
 
         <View style={styles.carousel}>
-          <List data={familyMovies} title="Family Movies" />
+          <List navigation={navigation} data={familyMovies} title="Family Movies" />
         </View>
       </ScrollView>
     </>

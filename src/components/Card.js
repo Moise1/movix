@@ -5,9 +5,15 @@ const imgPlaceholder = require("../../assets/img-placeholder.png");
 
 export class Card extends PureComponent {
   render() {
-    const { item } = this.props;
+    const { item, navigation } = this.props;
     return (
-      <TouchableOpacity style={styles.cardContainer}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate(
+          "Details", {
+          id: item.id
+        })}
+        style={styles.cardContainer}
+      >
         <Image
           resizeMode="cover"
           style={styles.img}
@@ -17,7 +23,9 @@ export class Card extends PureComponent {
               : imgPlaceholder
           }
         />
-        {!item.poster_path && <Text style={styles.movieTitle}>{item.title}</Text>}
+        {!item.poster_path && (
+          <Text style={styles.movieTitle}>{item.title}</Text>
+        )}
       </TouchableOpacity>
     );
   }
@@ -27,8 +35,8 @@ const styles = StyleSheet.create({
   cardContainer: {
     padding: 5,
     position: "relative",
-    alignItems: 'center',
-    height: 200
+    alignItems: "center",
+    height: 200,
   },
   img: {
     height: 200,
@@ -36,9 +44,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   movieTitle: {
-    position: 'absolute',
+    position: "absolute",
     width: 100,
     top: 10,
-    textAlign: 'center'
-  }
+    textAlign: "center",
+  },
 });
